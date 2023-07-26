@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">ADD CATEGORY</h6>
+                            <form method="POST" action="{% url 'productsave' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div>
+                                <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="select_category">
+                                <option selected="">Select The Category</option>
+                                    {% for i in keye %}
+                                <option>{{i.categoryname}}</option>
+                                      {% endfor %}
+                            </select>
+                                </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Product Name" name="productname">
+                                <label for="floatingInput">Product Name</label>
+                            </div>
+                                <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="floatingInput" placeholder="quantity" name="quantity" min="1" max="5">
+                                <label for="floatingInput">Enter the Quantity</label>
+                            </div>
+                                <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Price" name="price">
+                                <label for="floatingInput">Enter the Price</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                <textarea class="form-control" placeholder="description" id="floatingTextarea" style="height: 150px;" name="description">Description</textarea>
+                                <label for="floatingTextarea">Description About the Category</label>
+                                    </div>
+                                  <div class="mb-3">
+                                <label for="formFile" class="form-label">Upload the Product Image</label>
+                                <input class="form-control" type="file" id="formFile" name="image">
+                               </div>
+                                <button type="submit" class="btn btn-primary m-2">Register</button>
+                            </form>
+                        </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+       {% if messages %}
+      {% for i in messages %}
+           {% if i.tags == 'warning' %}
+               <script>
+                    swal('{{i}}','','warning');
+               </script>
+           {% elif i.tags == 'error' %}
+               <script>
+                    swal('{{i}}','','error');
+               </script>
+           {% else%}
+               <script>
+                    swal('{{i}}','','success');
+               </script>
+           {% endif %}
+        {% endfor %}
+    {% endif %}
+
+
+
+
+</body>
+</html>
+{% endblock %}

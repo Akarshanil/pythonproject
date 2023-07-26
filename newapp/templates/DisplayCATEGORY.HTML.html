@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Responsive Table</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">categoryname </th>
+                                            <th scope="col">image</th>
+                                            <th scope="col">description</th>
+                                            <th scope="col">Edit Button</th>
+                                            <th scope="col">Delete Button</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in key %}
+                                        <tr>
+                                           
+                                            <td>{{i.categoryname}}</td>
+                                            <td> <img src="{{i.image.url}}" height="100px" width="100px"></td>
+                                            <td>{{i.description}}</td>
+                                            <td>
+                                                <form action="{% url 'editcategory' dataid=i.id %}">
+                                                 <button type="submit" class="btn btn-info m-2">Edit</button>
+                                                </form>
+                                            </td>
+                                                <td>
+                                                <form action="{% url 'deletecategory' dataid=i.id %}">
+                                                    <button type="submit" class="btn btn-dark m-2">Delete</button>
+                                                </form>
+                                            </td>
+                                         
+                                        </tr>
+                                       {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'productsale.html' %}
+{% block content %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">About </h5>
+    <p class="card-text" ><b>At Eflyer we're passionate about providing you with the best possible shopping experience.Our mission is to offer high-quality products and exceptional customer service at affordable prices.
+Founded in 2000, Eflyer has been committed to delivering the best products and service to our customers.We believe that shopping online should be easy and hassle-free, which is why we strive to make the process as simple as possible.
+Our team is dedicated to bringing you the latest trends and styles, and we're constantly updating our inventory to offer you the best selection.
+At Eflyer we value our customers above all else and are committed to providing you with the best shopping experience possible.
+Our goal is to create a seamless and enjoyable shopping experience for every customer, every time.
+We believe in transparency and honesty, and strive to provide you with all the information you need to make an informed purchase.
+Thank you for choosing [Company Name]. We're honored to serve you and look forward to helping you find the perfect products for your needs.
+
+
+
+</b></p>
+    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+  </div>
+  <div style="margin-left:550px">
+       <img src="{% static 'images\akarsh.jpg' %}" height="100px" width="300px">
+ </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+</body>
+</html>
+{% endblock %}
